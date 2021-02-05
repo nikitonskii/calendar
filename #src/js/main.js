@@ -142,38 +142,44 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		filterEvents.addEventListener('click', () => {
 			let members = getParticipants(participants);
-			console.log(members.length);
 
-			if (members.includes('All members')) {
-				cleanCells();
-				renderAll();
-			}
+			if (members.length <= 1) {
+				if (members.includes('All members')) {
+					cleanCells();
+					renderAll();
+				}
 
-			else if (members.includes('John')) {
+				else if (members.includes('John')) {
+					cleanCells();
+					eventsArr.forEach(item => {
+						if (item.participants.includes('John')) {
+							item.render();
+						}
+					});
+				}
+
+				else if (members.includes('Bella')) {
+					cleanCells();
+					eventsArr.forEach(item => {
+						if (item.participants.includes('Bella')) {
+							item.render();
+						}
+					});
+				}
+
+				else if (members.includes('Harry')) {
+					cleanCells();
+					eventsArr.forEach(item => {
+						if (item.participants.includes('Harry')) {
+							item.render();
+						}
+					});
+				}
+			} else if (members.length > 1) {
+				const memArr = transformArr(members);
 				cleanCells();
 				eventsArr.forEach(item => {
-					if (item.participants.includes('John')) {
-						console.log('it`s working from John', item);
-						item.render();
-					}
-				});
-			}
-
-			else if (members.includes('Bella')) {
-				cleanCells();
-				eventsArr.forEach(item => {
-					if (item.participants.includes('Bella')) {
-						console.log('it`s working from Bella', item);
-						item.render();
-					}
-				});
-			}
-
-			else if (members.includes('Harry')) {
-				cleanCells();
-				eventsArr.forEach(item => {
-					if (item.participants.includes('Harry')) {
-						console.log('it`s working from Harry', item);
+					if (transformArr(item.participants) === memArr) {
 						item.render();
 					}
 				});
@@ -183,7 +189,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
 	}
 
-
+	function transformArr(arr) {
+		return arr.join('').toLowerCase().replace('all members', ' ').match(/[a-z]/gi).sort().join('');
+	}
 
 	if (window.location.pathname.indexOf('create-event.html') > -1) {
 		// initialize eventCreator object and wait for user actions

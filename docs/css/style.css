@@ -309,14 +309,14 @@ table td:first-child {
 
 .shell .error__name {
   position: absolute;
-  left: 20%;
+  left: 15%;
   bottom: -50%;
   color: #ff6666;
 }
 
 .shell .error__member {
   position: absolute;
-  left: 20%;
+  left: 12%;
   bottom: -50%;
   color: #ff6666;
 }
