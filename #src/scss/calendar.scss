@@ -1,0 +1,176 @@
+.main {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.btn {
+	height: 100%;
+	width: 100%;
+	padding: 7px;
+	background-color: #ccc;
+	border-radius: 5px;
+	font-size: 15px;
+	font-weight: 600;
+	text-align: center;
+
+
+	&:hover {
+		transition: 0.5s;
+		box-shadow: 0 5px 5px 0px #06f;
+		background-color: aqua;
+	}
+
+	&:active {
+		transform: translateY(4px);
+		box-shadow: none;
+	}
+}
+
+
+.btn_primary {}
+
+
+.meeting {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+	padding: 15px 15px;
+	background-color: rgb(51, 255, 51);
+
+	div {
+		position: absolute;
+		top: 3px;
+		right: 3px;
+		cursor: pointer;
+		font-size: larger;
+		font-weight: 700;
+	}
+
+	p {
+		font-size: 15px;
+		font-weight: 600;
+		word-wrap: break-word;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	height: 100%;
+
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		padding: 20px 20px 0 20px;
+
+		.header__title {
+			h1 {
+				font-size: 35px;
+			}
+		}
+
+		.header__functions {
+			display: flex;
+			align-items: center;
+
+			.functions__members {
+				border: 1px solid #ccc;
+				border-radius: 5px;
+				font-size: 25px;
+				font-weight: 400;
+				margin: 0 25px 0 0;
+
+				#members__list {
+					width: 1;
+					height: 100%;
+					padding: 10px;
+					font-size: 15px;
+				}
+			}
+		}
+	}
+}
+
+
+.table {
+	padding: 20px;
+}
+
+table {
+	width: 100%;
+	height: 80vh;
+	border-collapse: collapse;
+	border: 1px solid #399;
+
+
+	.main__cell {
+		font-size: large;
+		background-color: #ccc;
+	}
+
+	td,
+	th {
+		border: 1px solid #dddddd;
+		text-align: center;
+		//padding: 10px;
+		word-wrap: break-word;
+		max-width: 100px;
+		border: 1px solid #399;
+	}
+
+	td:first-child {
+		font-size: large;
+		font-weight: 600;
+	}
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #ccc;
+	width: 500px;
+	border: 1px solid #399;
+	border-radius: 15px;
+	color: #000000;
+	text-align: center;
+	box-shadow: 6px 6px 12px 0px rgba(34, 60, 80, 0.3);
+
+	h3 {
+		padding: 30px;
+		font-size: 25px;
+	}
+
+	div {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		button {
+			border: 1px solid #399;
+			border-radius: 5px;
+			margin: 15px;
+			width: 100px;
+			padding: 10px;
+		}
+	}
+}
+
+.fade-in {
+	animation: fade-in 1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}

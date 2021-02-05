@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Your events</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+	<main class="event">
+		<h1>Create your event</h1>
+		<form  action="" class="events__wrapper">
+			<div class="event__name events">
+				<label for="goal">Name of the event:</label>
+				<div class="shell">
+					<input type="text" id="goal" class="event__goal"  placeholder="Event" ></input>
+					<p class="error__name hide">Please feel this field</p>
+				</div>	
+			</div>
+			<div class="event__participants events">
+				<label for="participants">Participants:</label>
+				<div class="container shell">
+					<select required multiple data-multi-select-plugin>
+						<option value="John">John</option>
+						<option value="Bella">Bella</option>
+						<option value="Harry">Harry</option>
+					</select>
+					<p class="error__member hide">Please choose participants</p>
+				</div>
+				</div>
+			<div class="event__day events">
+				<label for="days">Event day:</label>
+				<div class="shell">
+					<select id="days">
+						<option value="md">Monday</option>
+						<option value="tu">Tuesday</option>
+						<option value="wd">Wednesday</option>
+						<option value="tr">Thursday</option>
+						<option value="fr">Friday</option>
+					</select>
+				</div>
+			</div>
+			<div class="event__time events">
+				<label for="time">Event time:</label>
+				<div class="shell">
+					<select id="time">
+						<option value="10">10:00</option>
+						<option value="11">11:00</option>
+						<option value="12">12:00</option>
+						<option value="13">13:00</option>
+						<option value="14">14:00</option>
+						<option value="15">15:00</option>
+						<option value="16">16:00</option>
+						<option value="17">17:00</option>
+						<option value="18">18:00</option>
+					</select>
+				</div>
+				</div>
+			<div class="event__btns">
+				<button  class="btn btn__reject">Cancel</button>
+				<button type="submit" class="btn event__btn">Create</button>
+			</div>
+		</form>
+		<div class="alert hide bounce-in-top">
+			<div class="modal__close" data-close>&times;</div>
+			<h2>Please select another timeslot or fill in all fields </h2>
+		</div>
+	</main>
+	<script src="js/script.js"></script>
+</body>
+</html>
