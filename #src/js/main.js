@@ -4,7 +4,6 @@ import multiselect from './modules/multiselect';
 
 window.addEventListener('DOMContentLoaded', () => {
 
-
 	let eventsArr = [];
 	let eventsKeys = [];
 	let sure = false;
@@ -120,14 +119,14 @@ window.addEventListener('DOMContentLoaded', () => {
 			item.remove();
 		});
 	}
-	//console.log(eventsArr);
+
 
 	function renderAll() {
 		getEvent();
 		eventsArr.forEach(item => item.render());
 	}
 
-	if (window.location.pathname === 'calendar/index.html') {
+	if (window.location.pathname === '/calendar/' || window.location.pathname.indexOf('index.html') > -1) {
 		// initialize calendar object and render event cells
 		console.log('its calendar');
 
@@ -138,7 +137,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		const filterEvents = document.querySelector('.multi-select-component');
 
 		newEventBtn.addEventListener('click', () => {
-			window.location.pathname = 'calendar/create-event.html';
+			window.location.pathname = '/calendar/create-event.html';
 		});
 
 		filterEvents.addEventListener('click', () => {
@@ -186,7 +185,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-	if (window.location.pathname === 'calendar/create-event.html') {
+	if (window.location.pathname.indexOf('create-event.html') > -1) {
 		// initialize eventCreator object and wait for user actions
 		console.log('its create-event');
 
@@ -241,7 +240,7 @@ window.addEventListener('DOMContentLoaded', () => {
 					new Event(eventId, eventName.value, getParticipants(participants), eventTime.value)
 				);
 				localStorage.setItem(`${eventId}`, meeting);
-				window.location.pathname = '/index.html';
+				window.location.pathname = '/calendar/index.html';
 
 			} else {
 				alertModal.classList.remove('hide');
@@ -252,7 +251,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			alertModal.classList.add('hide');
 		});
 		rejectBtn.addEventListener('click', () => {
-			window.location.pathname = '/index.html';
+			window.location.pathname = '/calendar/index.html';
 		});
 		eventBtn.addEventListener('click', (e) => createEventData(e));
 
