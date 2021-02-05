@@ -127,7 +127,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		eventsArr.forEach(item => item.render());
 	}
 
-	if (window.location.pathname === '/index.html') {
+	if (window.location.pathname === 'calendar/index.html') {
 		// initialize calendar object and render event cells
 		console.log('its calendar');
 
@@ -186,7 +186,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 
 
-	if (window.location.pathname === '/create-event.html') {
+	if (window.location.pathname === 'calendar/create-event.html') {
 		// initialize eventCreator object and wait for user actions
 		console.log('its create-event');
 

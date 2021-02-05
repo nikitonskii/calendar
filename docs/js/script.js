@@ -238,7 +238,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  if (window.location.pathname === '/index.html') {
+  if (window.location.pathname === 'calendar/index.html') {
     // initialize calendar object and render event cells
     console.log('its calendar');
     Object(_modules_multiselect__WEBPACK_IMPORTED_MODULE_6__["default"])();
@@ -283,7 +283,7 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  if (window.location.pathname === '/create-event.html') {
+  if (window.location.pathname === 'calendar/create-event.html') {
     // initialize eventCreator object and wait for user actions
     console.log('its create-event');
     Object(_modules_multiselect__WEBPACK_IMPORTED_MODULE_6__["default"])();
