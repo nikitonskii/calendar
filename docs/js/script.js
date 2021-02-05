@@ -246,7 +246,7 @@ window.addEventListener('DOMContentLoaded', function () {
     var newEventBtn = document.querySelector('.btn__new');
     var filterEvents = document.querySelector('.multi-select-component');
     newEventBtn.addEventListener('click', function () {
-      window.location.pathname = '/create-event.html';
+      window.location.pathname = 'calendar/create-event.html';
     });
     filterEvents.addEventListener('click', function () {
       var members = getParticipants(participants);

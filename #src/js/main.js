@@ -138,7 +138,7 @@ window.addEventListener('DOMContentLoaded', () => {
 		const filterEvents = document.querySelector('.multi-select-component');
 
 		newEventBtn.addEventListener('click', () => {
-			window.location.pathname = '/create-event.html';
+			window.location.pathname = 'calendar/create-event.html';
 		});
 
 		filterEvents.addEventListener('click', () => {
