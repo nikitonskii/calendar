@@ -52,7 +52,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			})
 		}
 	}
-
+	// get event from localstorage and push it in arrays
 	function getEvent() {
 		eventsArr = [];
 		eventsKeys = [];
@@ -64,10 +64,9 @@ window.addEventListener('DOMContentLoaded', () => {
 			eventsArr.push(new Meeting(obj.id, obj.name, obj.participants));
 		}
 	}
-
+	// get selected participants
 	function getParticipants(participants) {
 		const persons = [];
-		//console.log(participants);
 
 		participants.forEach(person => {
 			person.hasAttribute('selected') ? persons.push(person.value) : null
@@ -75,7 +74,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 		return persons;
 	}
-
+	// push event title to confirmation dialog window
 	function pushEventName(selector) {
 		const transformedSelector = selector + 'goal';
 		const meetingGoal = document.querySelector(`.${transformedSelector}`);
@@ -134,63 +133,33 @@ window.addEventListener('DOMContentLoaded', () => {
 		renderAll();
 
 		const newEventBtn = document.querySelector('.btn__new');
-		const filterEvents = document.querySelector('.multi-select-component');
-
 		newEventBtn.addEventListener('click', () => {
 			window.location.pathname = '/calendar/create-event.html';
 		});
 
-		filterEvents.addEventListener('click', () => {
+		function filterEvents() {
 			let members = getParticipants(participants);
+			console.log(members);
 
-			if (members.length <= 1) {
-				if (members.includes('All members')) {
-					cleanCells();
-					renderAll();
+			cleanCells();
+			eventsArr.forEach(item => {
+				if (found(item.participants, members)) {
+					item.render();
 				}
-
-				else if (members.includes('John')) {
-					cleanCells();
-					eventsArr.forEach(item => {
-						if (item.participants.includes('John')) {
-							item.render();
-						}
-					});
-				}
-
-				else if (members.includes('Bella')) {
-					cleanCells();
-					eventsArr.forEach(item => {
-						if (item.participants.includes('Bella')) {
-							item.render();
-						}
-					});
-				}
-
-				else if (members.includes('Harry')) {
-					cleanCells();
-					eventsArr.forEach(item => {
-						if (item.participants.includes('Harry')) {
-							item.render();
-						}
-					});
-				}
-			} else if (members.length > 1) {
-				const memArr = transformArr(members);
+			});
+			if (members.length === 0) {
 				cleanCells();
-				eventsArr.forEach(item => {
-					if (transformArr(item.participants) === memArr) {
-						item.render();
-					}
-				});
+				renderAll();
 			}
+		}
 
-		});
+		function found(arr, arr2) {
+			return arr.some(r => arr2.indexOf(r) >= 0);
+		}
 
-	}
+		document.addEventListener('test', filterEvents);
+		document.addEventListener('check', filterEvents);
 
-	function transformArr(arr) {
-		return arr.join('').toLowerCase().replace('all members', ' ').match(/[a-z]/gi).sort().join('');
 	}
 
 	if (window.location.pathname.indexOf('create-event.html') > -1) {
@@ -211,6 +180,7 @@ window.addEventListener('DOMContentLoaded', () => {
 			validationMember = document.querySelector('.error__member'),
 			closeModal = document.querySelector('.modal__close');
 
+		// validation for inputs
 		function checkInputs(name, selector) {
 			if (name.value !== '') {
 				selector.classList.add('hide');

@@ -251,6 +251,9 @@ function multiselect() {
 		const event = new Event('keyup');
 		input_search.dispatchEvent(event);
 		e.stopPropagation();
+
+		const watcher = new Event('test');
+		document.dispatchEvent(watcher);
 	}
 
 
@@ -317,6 +320,9 @@ function multiselect() {
 		const event = new Event('click');
 		dropdown.dispatchEvent(event);
 		e.stopPropagation();
+
+		const watchDel = new Event('check');
+		document.dispatchEvent(watchDel);
 	}
 
 	// Listen for 2 sequence of hits on the delete key, if this happens delete the last token if exist
